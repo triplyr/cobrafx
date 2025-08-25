@@ -2,7 +2,7 @@
 <div align="center">
     <img src="./assets/cobrafx.png" alt="cobrafx logo" width="512" height="535" />
 
-[![GoDoc](https://pkg.go.dev/badge/github.com/triplyr/cobrafx)](https://pkg.go.dev/github.com/triplyr/cobrafx) [![Github release](https://img.shields.io/github/release/triplyr/cobrafx.svg)](https://github.com/triplyr/cobrafx/releases) [![Build Status](https://github.com/triplyr/cobrafx/actions/workflows/go.yml/badge.svg)](https://github.com/triplyr/cobrafx/actions/workflows/go.yml) [![Coverage Status](https://codecov.io/gh/triplyr/cobrafx/branch/main/graph/badge.svg)](https://codecov.io/gh/triplyr/cobrafx/branch/master) [![Go Report Card](https://goreportcard.com/badge/github.com/triplyr/cobrafx)](https://goreportcard.com/report/github.com/triplyr/cobrafx)
+[![GoDoc](https://pkg.go.dev/badge/github.com/triplyr/cobrafx)](https://pkg.go.dev/github.com/triplyr/cobrafx) [![Github release](https://img.shields.io/github/release/triplyr/cobrafx.svg)](https://github.com/triplyr/cobrafx/releases) [![Build Status](https://github.com/triplyr/cobrafx/actions/workflows/go.yaml/badge.svg)](https://github.com/triplyr/cobrafx/actions/workflows/go.yaml) [![Coverage Status](https://codecov.io/gh/triplyr/cobrafx/branch/main/graph/badge.svg)](https://codecov.io/gh/triplyr/cobrafx/branch/master) [![Go Report Card](https://goreportcard.com/badge/github.com/triplyr/cobrafx)](https://goreportcard.com/report/github.com/triplyr/cobrafx)
 
 </div>
 
