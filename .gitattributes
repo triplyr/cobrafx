@@ -1,0 +1,4 @@
+go.sum linguist-generated=true
+docs/go.sum linguist-generated=true
+
+*.go -text diff=golang
