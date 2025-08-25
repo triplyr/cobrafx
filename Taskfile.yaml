@@ -1,0 +1,83 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# vim: set ts=2 sw=2 tw=0 fo=cnqoj # codespell:ignore fo
+
+version: "3"
+
+tasks:
+
+  go:generate:
+    desc: Run go generate.
+    cmds:
+    - asdf exec go generate ./...
+
+  go:test:
+    desc: Run go tests. Use SHORT=true for short tests only. Use UPDATE_SNAPS=true to update snapshots.
+    vars:
+      SHORT: '{{ .SHORT | default "false" }}'
+    cmds:
+    - |
+      asdf exec go test -fullpath -mod=readonly -count 1 -shuffle=on \
+        -short={{ .SHORT }} \
+        -race -coverpkg=./... \
+        -coverprofile=coverage.txt \
+        -covermode=atomic \
+        ./...
+
+  go:mod:download:
+    desc: Download go modules.
+    cmds:
+    - asdf exec go mod download
+
+  go:mod:tidy:
+    desc: Run go mod tidy.
+    sources:
+    - go.mod
+    - "docs/go.mod"
+    generates:
+    - go.mod
+    - go.sum
+    - "docs/go.mod"
+    - "docs/go.sum"
+    cmds:
+    - for: sources
+      cmd: |
+        pushd {{ dir .ITEM }} > /dev/null || exit 1
+        asdf exec go mod tidy
+        asdf exec go mod verify
+        popd > /dev/null || exit 1
+
+  go:lint:
+    desc: Run golangci-lint.
+    cmds:
+    - |
+      asdf exec golangci-lint run \
+        --new-from-rev=HEAD~ \
+        --whole-files \
+        --output.text.path stdout \
+        --max-same-issues=0 \
+        --config=.golangci.yaml \
+        ./...
+
+  go:fmt:
+    run: once
+    desc: Format all go files.
+    sources:
+    - "**/*.go"
+    generates:
+    - "**/*.go"
+    cmds:
+    - asdf exec golangci-lint fmt --config=.golangci.yaml
+
+  go:lint:fix:
+    desc: Fix lint issues that can be fixed automatically.
+    cmds:
+    - |
+      asdf exec golangci-lint run \
+        --new-from-rev=HEAD~ \
+        --whole-files \
+        --output.text.path stdout \
+        --max-same-issues=0 \
+        --config=.golangci.yaml \
+        --fix \
+        ./...

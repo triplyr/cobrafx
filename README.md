@@ -6,15 +6,6 @@
 
 </div>
 
-CobraFx is a helper library that leverages [Uber Fx](https://uber-go.github.io/fx/index.html) to make authoring [Cobra](https://cobra.dev) CLIs easier.
+CobraFx is an [Uber Fx](https://uber-go.github.io/fx/index.html) Module that provides building blocks to make authoring [Cobra](https://cobra.dev) CLIs easier.
 
 Visit our [CobraFx](https://cobrafx.triplyr.com) site for extensive documentation.
-
-## Overview
-
-cobrafx is a library for building Go applications with a focus on simplicity and ease of use.
-
-## Features
-
-- Simple and easy to use
-- Built-in support for logging, metrics, and tracing
